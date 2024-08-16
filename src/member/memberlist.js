@@ -3,8 +3,9 @@ import Table from 'react-bootstrap/Table';
 import { useEffect ,useState } from 'react';
 
 export function MemberList() {
+
   useEffect(()=>{
-    axios.get('/member/memberList')
+    axios.get(process.env.REACT_APP_SERVER +'/member/memberList')
     // axios.get('/member/memberList?id="abc"')
     .then((response)=>{
       console.log(response.data)
@@ -31,7 +32,7 @@ export function MemberList() {
         {
           list.map(function (a){
             return(
-                    <tr>
+                    <tr key={a}>
                       <td>{a.memberName}</td>
                       <td>{a.address.city}</td>
                       <td>{a.address.street}</td>
@@ -40,12 +41,12 @@ export function MemberList() {
                    )
           })
         }
-        <tr>
+        {/* <tr>
           <td>1</td>
           <td>Mark</td>
           <td>Otto</td>
           <td>@mdo</td>
-        </tr>
+        </tr> */}
       </tbody>
     </Table>
   );

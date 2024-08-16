@@ -27,7 +27,7 @@ export function SignIn(){
       params.append('city',signInData.city)
       params.append('street',signInData.street)
       params.append('zipcode',signInData.zipcode)
-      common.postApi('/member/signIn',params);
+      common.postApi(process.env.REACT_APP_SERVER+'/member/signIn',params);
     }
   
     //onSubmit : 폼을 제출할 때 이벤트가 발생한다.
